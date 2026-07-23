@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guildshelf — Production-proven skills for Claude Code</title>
+<meta name="description" content="A subscription library of production-proven agent skills for Claude Code. Scanned, signed, eval-tested, maintained. Free skills available now; paid library launching soon.">
+<style>
+  :root {
+    --ground:#14171c; --surface:#1b1f27; --surface-2:#232936; --text:#e7e9ee;
+    --muted:#97a0ad; --faint:#6c7684; --border:#2b3240;
+    --brass:#cca35c; --brass-dim:#9c7a38; --verified:#74b992;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --ground:#f2f4f0; --surface:#fff; --surface-2:#eaece6; --text:#191d24;
+      --muted:#565e6b; --faint:#838b95; --border:#d9dcd4; --brass:#8f6b1e;
+      --brass-dim:#b9924a; --verified:#3c855e; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  a{color:var(--brass)}
+  h1,h2,h3{text-wrap:balance;line-height:1.14;letter-spacing:-.02em;margin:0}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:0 0 14px}
+  .banner{background:var(--surface-2);border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.76rem;color:var(--muted);text-align:center;padding:9px 16px;letter-spacing:.03em}
+  .banner b{color:var(--brass)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--border)}
+  .brand{display:flex;align-items:baseline;gap:10px;font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+  .seal{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);border:1px solid var(--brass-dim);border-radius:3px;padding:2px 7px}
+  .hero{padding:64px 0 44px}
+  .hero h1{font-size:clamp(2rem,4.4vw,3rem);font-weight:780;max-width:16ch}
+  .hero .lede{color:var(--muted);font-size:1.08rem;margin:20px 0 26px;max-width:52ch}
+  .hero .lede b{color:var(--text);font-weight:600}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{font-family:var(--mono);font-size:.85rem;text-decoration:none;border-radius:6px;padding:12px 18px;font-weight:600;border:1px solid var(--border);display:inline-flex;gap:8px;align-items:center}
+  .btn-primary{background:var(--brass);color:#14171c;border-color:var(--brass)}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-ghost{background:transparent;color:var(--text)}
+  .btn-ghost:hover{border-color:var(--brass);color:var(--brass)}
+  section{padding:48px 0;border-top:1px solid var(--border)}
+  .sec-head{max-width:60ch;margin-bottom:28px}
+  .sec-head h2{font-size:clamp(1.4rem,2.8vw,1.9rem);font-weight:720}
+  .sec-head p{color:var(--muted);margin:12px 0 0}
+  .install{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:18px 20px;font-family:var(--mono);font-size:.86rem;overflow-x:auto}
+  .install .c{color:var(--brass)}
+  .install .cmt{color:var(--faint)}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:18px 20px}
+  .card h3{font-size:1rem;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.9rem;margin:0}
+  .std{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .g{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:16px}
+  .g .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--verified);margin-bottom:8px}
+  .g p{color:var(--muted);font-size:.83rem;margin:0}
+  .soon{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:10px;color:var(--muted);font-size:.94rem}
+  .soon b{color:var(--text)}
+  .price-note{font-family:var(--mono);font-size:.8rem;color:var(--faint);margin-top:14px}
+  footer{border-top:1px solid var(--border);padding:38px 0 56px;color:var(--faint);font-size:.82rem}
+  footer .discl{font-family:var(--mono);font-size:.73rem;line-height:1.7;margin-top:12px;max-width:74ch}
+  @media(max-width:760px){.grid,.std{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="banner mono">Free skills available now &middot; <b>paid library launching soon</b> &middot; follow the repo for launch updates</div>
+<div class="wrap">
+  <nav>
+    <div class="brand">Guildshelf <span class="seal">signed</span></div>
+    <a class="btn btn-ghost" href="https://github.com/guildshelf/free-skills">GitHub &rarr;</a>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">Skills for Claude Code &middot; built for production</p>
+    <h1>Production-proven skills for Claude&nbsp;Code.</h1>
+    <p class="lede">Not markdown you hope works — pipelines that <b>ran a real business first</b>, then got scanned, signed, eval-tested, and hardened for you. Start with five, free, today.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/guildshelf/free-skills">Install 5 free skills</a>
+      <a class="btn btn-ghost" href="https://github.com/guildshelf/free-skills/subscription">Watch for launch updates</a>
+    </div>
+  </header>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Try it now — free</p>
+      <h2>Five skills, open-source, one command.</h2>
+      <p>Apache-2.0. Runs in your own environment on your own accounts — we never see your keys or data.</p>
+    </div>
+    <div class="install"><span class="cmt"># in Claude Code</span><br><span class="c">/plugin marketplace add</span> guildshelf/free-skills</div>
+    <div class="grid">
+      <div class="card"><h3>Secrets Sweeper (lite)</h3><p>Catch hardcoded keys, IPs and personal data before they ship in a skill.</p></div>
+      <div class="card"><h3>Config Doctor (lite)</h3><p>Find dead paths and stale references across your CLAUDE.md, memory and skills.</p></div>
+      <div class="card"><h3>Learn-by-Demo (lite)</h3><p>Capture real network requests from a demo, then build automation on facts.</p></div>
+      <div class="card"><h3>Silent Runner (lite)</h3><p>Keep background jobs running without console windows stealing focus. Windows.</p></div>
+      <div class="card"><h3>AES Cheatsheet</h3><p>Cross-language OpenSSL "Salted__" AES interop, one reference page.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Why a paid library at all</p>
+      <h2>Scanned. Signed. Evaled. Maintained.</h2>
+      <p>Free skills are free for a reason: no versioning, no maintenance, and in independent scanning, <a href="https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/">36% of shared agent skills carried prompt-injection techniques</a> (Snyk ToxicSkills, Feb 2026). The paid library is the answer to that.</p>
+    </div>
+    <div class="std">
+      <div class="g"><div class="tag mono">&check; SCANNED</div><p>Every release swept for secrets &amp; PII. Best-effort, honest about its limits.</p></div>
+      <div class="g"><div class="tag mono">&check; SIGNED</div><p>minisign signatures, public key published out-of-band. What you install is what we shipped.</p></div>
+      <div class="g"><div class="tag mono">&check; EVALED</div><p>Trigger-accuracy cases per skill, with methodology and raw outputs published.</p></div>
+      <div class="g"><div class="tag mono">&check; MAINTAINED</div><p>Re-verified within 48h of every model update; fixes shipped or status disclosed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Launching soon</p>
+      <h2>The full library, plus Done-with-you setup.</h2>
+      <p>Built from pipelines that ran a real-estate business in production — session arbitration, approval gates, sync watchdogs — genericized and hardened. Founding pricing at launch:</p>
+    </div>
+    <div class="soon">
+      <div><b>Pro</b> — full library, weekly updates, 48h maintenance</div>
+      <div><b>Team</b> — 5 seats, shared config, priority support</div>
+      <div><b>Done-with-you</b> — we set it up with you on a call</div>
+    </div>
+    <p class="price-note">Founding launch pricing and a locked-forever rate for early members — announced when the checkout opens. Follow <a href="https://github.com/guildshelf/free-skills">the repo</a> to hear first.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" style="font-size:1rem">Guildshelf <span class="seal">signed</span></div>
+    <p style="margin:12px 0 0;color:var(--muted)"><span class="mono" style="color:var(--brass)">Scanned. Signed. Evaled. Maintained.</span></p>
+    <p class="discl">Guildshelf is not affiliated with, sponsored by, or endorsed by Anthropic PBC. "Claude" and "Claude Code" are trademarks of Anthropic, used here only to describe compatibility. Security statistics are from Snyk's ToxicSkills study (3,984 skills scanned, Feb 2026), snyk.io.</p>
+  </div>
+</footer>
+</body>
+</html>
