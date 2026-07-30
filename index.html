@@ -144,7 +144,7 @@
     <div class="std">
       <div class="g"><div class="tag mono">&check; SCANNED</div><p>Every release swept for secrets &amp; PII. Best-effort, honest about its limits.</p></div>
       <div class="g"><div class="tag mono">&check; SIGNED</div><p>minisign signatures, public key published out-of-band. What you install is what we shipped.</p></div>
-      <div class="g"><div class="tag mono">&check; EVALED</div><p>Trigger-accuracy cases per skill, with methodology and raw outputs published.</p></div>
+      <div class="g"><div class="tag mono">&check; EVALED</div><p>20 cases per skill, run for real in fresh sessions. First three scored: <b>10/10</b>, <b>9/10</b>, <b>9/10</b> trigger &mdash; and the variance behind those numbers is published too.</p></div>
       <div class="g"><div class="tag mono">&check; MAINTAINED</div><p>Re-verified within 48h of every model update; fixes shipped or status disclosed.</p></div>
     </div>
   </div>
@@ -162,7 +162,7 @@
       <div class="card"><div class="num">OPS</div><h3>Keep it running</h3><p><b>Watchdog Kit</b> restarts a job when it crashes and when it is alive but stuck. <b>Notify Hub</b> delivers the alert with dedup and rate limiting. <b>Go-Live Checklist</b> verifies DNS, ports, health and certificates before launch. <b>Session Arbiter</b> stops concurrent agents corrupting each other.</p></div>
       <div class="card"><div class="num">DATA</div><h3>Keep the records right</h3><p><b>Approval Gate</b> puts a human yes between what an agent extracted and your database, on an append-only trail. <b>Sync Pipeline</b> mirrors upstream data &mdash; retire instead of delete, refuse a truncated &ldquo;full&rdquo; sync, never overwrite what a human wrote.</p></div>
     </div>
-    <p class="price-note">We ran every one of these against our own library before shipping it. The eval harness found two bugs in itself doing that; Knowledge Intake found two in its own conflict detection; the secrets sweeper turned out to be reporting filesystem paths as credentials, which also hid the genuine path findings underneath them &mdash; fixed in v0.2.1, with the whole suite back to 37/37. All of it is written up in the changelogs, because a tool that has never been caught being wrong has probably never been checked.</p>
+    <p class="price-note">We ran every one of these against our own library before shipping it, and it keeps finding things. The eval harness found three bugs in itself &mdash; the last one was reading the wrong table column, so three of one skill's ten cases were being scored against the explanation instead of the prompt. Knowledge Intake found two in its own conflict detection. The secrets sweeper turned out to be reporting filesystem paths as credentials, which also hid the genuine path findings underneath them. And a new loadability check caught one paid skill whose frontmatter did not parse at all: a YAML value cannot contain a colon followed by a space, its description said &ldquo;Not for: &hellip;&rdquo;, and so that skill had been shipping in a state where it would never fire on its own. All of it is written up in the changelogs, because a tool that has never been caught being wrong has probably never been checked.</p>
   </div>
 </section>
 
