@@ -4,7 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guildshelf — Production-proven skills for Claude Code</title>
-<meta name="description" content="A subscription library of production-proven agent skills for Claude Code. Scanned, signed, eval-tested, maintained. Free skills available now; paid library launching soon.">
+<meta name="description" content="A subscription library of production-proven agent skills for Claude Code. Scanned, signed, eval-tested, maintained. Five free today; founding rates open now — US$199/year held, or US$499 once.">
+<link rel="canonical" href="https://guildshelf.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Guildshelf">
+<meta property="og:url" content="https://guildshelf.github.io/">
+<meta property="og:title" content="Guildshelf — Production-proven skills for Claude Code">
+<meta property="og:description" content="Not markdown you hope works — pipelines that ran a real business first, then got scanned, signed, eval-tested and hardened. Five free today. Founding rate US$199/year, first 150.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@guildshelf">
+<meta name="twitter:title" content="Guildshelf — Production-proven skills for Claude Code">
+<meta name="twitter:description" content="Scanned. Signed. Evaled. Maintained. Five free skills today; founding rates open before the checkout does.">
+<meta property="og:image" content="https://guildshelf.github.io/og.png">
+<meta name="twitter:image" content="https://guildshelf.github.io/og.png">
 <style>
   :root {
     --ground:#14171c; --surface:#1b1f27; --surface-2:#232936; --text:#e7e9ee;
@@ -27,6 +39,7 @@
   .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:0 0 14px}
   .banner{background:var(--surface-2);border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.76rem;color:var(--muted);text-align:center;padding:9px 16px;letter-spacing:.03em}
   .banner b{color:var(--brass)}
+  .banner a{color:var(--brass)}
   nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--border)}
   .brand{display:flex;align-items:baseline;gap:10px;font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
   .seal{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);border:1px solid var(--brass-dim);border-radius:3px;padding:2px 7px}
@@ -51,20 +64,41 @@
   .card{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:18px 20px}
   .card h3{font-size:1rem;margin-bottom:6px}
   .card p{color:var(--muted);font-size:.9rem;margin:0}
+  .card .num{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--brass);margin-bottom:6px}
   .std{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
   .g{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:16px}
   .g .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--verified);margin-bottom:8px}
   .g p{color:var(--muted);font-size:.83rem;margin:0}
-  .soon{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:10px;color:var(--muted);font-size:.94rem}
-  .soon b{color:var(--text)}
   .price-note{font-family:var(--mono);font-size:.8rem;color:var(--faint);margin-top:14px}
+
+  /* pricing */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px;align-items:start}
+  .tier{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px}
+  .tier.lead{border-color:var(--brass-dim);box-shadow:0 0 0 1px var(--brass-dim) inset}
+  .tier .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:10px}
+  .tier .amt{font-family:var(--mono);font-size:1.72rem;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+  .tier .per{font-family:var(--mono);font-size:.78rem;color:var(--faint);margin-top:4px}
+  .tier ul{list-style:none;padding:0;margin:16px 0 0;color:var(--muted);font-size:.88rem}
+  .tier li{padding:5px 0 5px 17px;position:relative}
+  .tier li::before{content:"·";position:absolute;left:3px;color:var(--brass);font-weight:700}
+  .tier .cap{font-family:var(--mono);font-size:.73rem;color:var(--verified);margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+  .tier .btn{margin-top:16px;width:100%;justify-content:center}
+  .list-row{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:20px;font-family:var(--mono);font-size:.82rem;color:var(--faint)}
+  .list-row b{color:var(--muted);font-weight:600}
+  .flagship{background:var(--surface-2);border:1px solid var(--brass-dim);border-radius:10px;padding:24px;margin-top:26px}
+  .flagship h3{font-size:1.14rem;margin-bottom:4px}
+  .flagship .amt{font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--brass)}
+  .flagship ol{color:var(--muted);font-size:.9rem;margin:14px 0 0;padding-left:20px}
+  .flagship ol li{padding:3px 0}
+  .honest{background:var(--surface);border-left:2px solid var(--brass);border-radius:0 8px 8px 0;padding:16px 20px;margin-top:26px;color:var(--muted);font-size:.9rem}
+  .honest b{color:var(--text)}
   footer{border-top:1px solid var(--border);padding:38px 0 56px;color:var(--faint);font-size:.82rem}
   footer .discl{font-family:var(--mono);font-size:.73rem;line-height:1.7;margin-top:12px;max-width:74ch}
-  @media(max-width:760px){.grid,.std{grid-template-columns:1fr}}
+  @media(max-width:760px){.grid,.std,.tiers{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="banner mono">Free skills available now &middot; <b>paid library launching soon</b> &middot; follow the repo for launch updates</div>
+<div class="banner mono">Five skills free now &middot; <b>founding rate US$199/yr, first 150</b> &middot; <a href="https://github.com/guildshelf/free-skills/issues/new?template=01-founding-seat.yml">reserve before the checkout opens &rarr;</a></div>
 <div class="wrap">
   <nav>
     <div class="brand">Guildshelf <span class="seal">signed</span></div>
@@ -77,7 +111,7 @@
     <p class="lede">Not markdown you hope works — pipelines that <b>ran a real business first</b>, then got scanned, signed, eval-tested, and hardened for you. Start with five, free, today.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://github.com/guildshelf/free-skills">Install 5 free skills</a>
-      <a class="btn btn-ghost" href="https://github.com/guildshelf/free-skills/subscription">Watch for launch updates</a>
+      <a class="btn btn-ghost" href="#pricing">See pricing &darr;</a>
     </div>
   </header>
 </div>
@@ -119,25 +153,91 @@
 <section>
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Launching soon</p>
-      <h2>The full library, plus Done-with-you setup.</h2>
-      <p>Built from pipelines that ran a real-estate business in production — session arbitration, approval gates, sync watchdogs — genericized and hardened. Founding pricing at launch:</p>
+      <p class="eyebrow">What is in the library</p>
+      <h2>16 skills across three lines.</h2>
+      <p>Built from pipelines that ran a real-estate business in production — session arbitration, approval gates, sync watchdogs — genericized and hardened. Every one ships with its own tests, an eval case set, a changelog, and an honest list of what it does not do.</p>
     </div>
-    <div class="soon">
-      <div><b>Pro</b> — full library, weekly updates, 48h maintenance</div>
-      <div><b>Team</b> — 5 seats, shared config, priority support</div>
-      <div><b>Done-with-you</b> — we set it up with you on a call</div>
+    <div class="grid" style="margin-top:0">
+      <div class="card"><div class="num">TRUST</div><h3>Keep your agent honest</h3><p><b>SkillLock</b> pins installed skills to content hashes and reports drift. <b>Skill Eval Harness</b> measures whether a skill fires when it should. <b>Knowledge Intake</b> scores a claim before it enters memory. <b>Secrets Hygiene Sweeper</b> and <b>Config Doctor</b> catch what shipped by accident.</p></div>
+      <div class="card"><div class="num">OPS</div><h3>Keep it running</h3><p><b>Watchdog Kit</b> restarts a job when it crashes and when it is alive but stuck. <b>Notify Hub</b> delivers the alert with dedup and rate limiting. <b>Go-Live Checklist</b> verifies DNS, ports, health and certificates before launch. <b>Session Arbiter</b> stops concurrent agents corrupting each other.</p></div>
+      <div class="card"><div class="num">DATA</div><h3>Keep the records right</h3><p><b>Approval Gate</b> puts a human yes between what an agent extracted and your database, on an append-only trail. <b>Sync Pipeline</b> mirrors upstream data &mdash; retire instead of delete, refuse a truncated &ldquo;full&rdquo; sync, never overwrite what a human wrote.</p></div>
     </div>
-    <div style="margin-top:22px">
-      <p class="price-note" style="margin:0 0 12px"><b style="color:var(--text)">The library today &mdash; 16 skills across three lines.</b> Every one shipped with its own tests, an eval case set, a changelog and an honest list of what it does not do.</p>
-      <div class="grid" style="margin-top:0">
-        <div class="card"><div class="num">TRUST</div><h3>Keep your agent honest</h3><p><b>SkillLock</b> pins installed skills to content hashes and reports drift. <b>Skill Eval Harness</b> measures whether a skill fires when it should. <b>Knowledge Intake</b> scores a claim before it enters memory. <b>Secrets Hygiene Sweeper</b> and <b>Config Doctor</b> catch what shipped by accident.</p></div>
-        <div class="card"><div class="num">OPS</div><h3>Keep it running</h3><p><b>Watchdog Kit</b> restarts a job when it crashes and when it is alive but stuck. <b>Notify Hub</b> delivers the alert with dedup and rate limiting. <b>Go-Live Checklist</b> verifies DNS, ports, health and certificates before launch. <b>Session Arbiter</b> stops concurrent agents corrupting each other.</p></div>
-        <div class="card"><div class="num">DATA</div><h3>Keep the records right</h3><p><b>Approval Gate</b> puts a human yes between what an agent extracted and your database, on an append-only trail. <b>Sync Pipeline</b> mirrors upstream data &mdash; retire instead of delete, refuse a truncated &ldquo;full&rdquo; sync, never overwrite what a human wrote.</p></div>
+    <p class="price-note">We ran every one of these against our own library before shipping it. The eval harness found two bugs in itself doing that; Knowledge Intake found two in its own conflict detection; the secrets sweeper turned out to be reporting filesystem paths as credentials, which also hid the genuine path findings underneath them &mdash; fixed in v0.2.1, with the whole suite back to 37/37. All of it is written up in the changelogs, because a tool that has never been caught being wrong has probably never been checked.</p>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Pricing</p>
+      <h2>Founding rates, and what they are anchored to.</h2>
+      <p>Two caps, both real and both small. When they are gone the list price is what is left — there is no second founding round.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier lead">
+        <div class="kicker">Founding annual</div>
+        <div class="amt">US$199</div>
+        <div class="per">per year — held at this rate for as long as you stay</div>
+        <ul>
+          <li>Full library, all three lines</li>
+          <li>Weekly updates</li>
+          <li>48h re-verification after model releases</li>
+          <li>Private repo access + licence key</li>
+          <li>Every skill that ships later, included</li>
+        </ul>
+        <div class="cap">First 150 &middot; list price US$290/yr</div>
+        <a class="btn btn-primary" href="https://github.com/guildshelf/free-skills/issues/new?template=01-founding-seat.yml">Reserve this rate</a>
       </div>
-      <p class="price-note" style="margin-top:14px">We ran every one of these against our own library before shipping it. The eval harness found two bugs in itself doing that; Knowledge Intake found two in its own conflict detection; the secrets sweeper turned out to be reporting filesystem paths as credentials, which also hid the genuine path findings underneath them &mdash; fixed in v0.2.1, with the whole suite back to 37/37. Both are written up in their changelogs, because a tool that has never been caught being wrong has probably never been checked.</p>
+      <div class="tier">
+        <div class="kicker">Founding lifetime</div>
+        <div class="amt">US$499</div>
+        <div class="per">once — no renewal, ever</div>
+        <ul>
+          <li>Everything in Founding Annual</li>
+          <li>Paid once, kept for good</li>
+          <li>Roughly 1.7 years of list price</li>
+        </ul>
+        <div class="cap">First 50 only</div>
+        <a class="btn btn-ghost" href="https://github.com/guildshelf/free-skills/issues/new?template=01-founding-seat.yml">Reserve this rate</a>
+      </div>
+      <div class="tier">
+        <div class="kicker">Team</div>
+        <div class="amt">US$99</div>
+        <div class="per">per month — 5 seats, +US$15/seat</div>
+        <ul>
+          <li>Everything in Pro, per seat</li>
+          <li>Shared configuration templates</li>
+          <li>Priority support</li>
+        </ul>
+        <div class="cap">No cap</div>
+        <a class="btn btn-ghost" href="https://github.com/guildshelf/free-skills/issues/new?template=01-founding-seat.yml">Talk to us</a>
+      </div>
     </div>
-    <p class="price-note">Founding launch pricing and a locked-forever rate for early members — announced when the checkout opens. Follow <a href="https://github.com/guildshelf/free-skills">the repo</a> to hear first.</p>
+    <div class="list-row"><div><b>List price after the caps:</b> Pro US$29/month or US$290/year</div><div><b>No credits, no mid-year repricing</b></div></div>
+
+    <div class="flagship">
+      <p class="eyebrow" style="margin-bottom:8px">The fastest way to get value out of this</p>
+      <h3>Done-with-you setup &mdash; <span class="amt">US$399</span> once</h3>
+      <p style="color:var(--muted);margin:10px 0 0;font-size:.94rem">You should not have to become an expert in a file format to get a job off your plate. So we do it with you:</p>
+      <ol>
+        <li><b>Guided setup</b> against your actual environment — you run the commands, we read the output and tell you the next one.</li>
+        <li><b>One skill built to your spec</b>, not a template. SKILL.md, script, trigger cases, tests. You own it outright, no licence attached.</li>
+        <li><b>A runbook</b> written for the person who has to fix it at 2am, which is usually you.</li>
+      </ol>
+      <p class="price-note" style="margin-top:14px">Custom skill inside 5 working days of an agreed spec. <b style="color:var(--verified)">3 this week, 10 total before the price moves</b> — we would rather deliver three properly than sell thirty. Delivered async in writing by default; ask for a live call if you prefer one.</p>
+      <div class="cta-row" style="margin-top:16px">
+        <a class="btn btn-primary" href="https://github.com/guildshelf/free-skills/issues/new?template=02-setup-service.yml">Start a setup thread</a>
+        <a class="btn btn-ghost" href="https://github.com/guildshelf/free-skills/issues/new?template=03-skill-request.yml">Or just request a skill, free</a>
+      </div>
+    </div>
+
+    <div class="honest">
+      <b>The checkout is not open yet, and we are not going to pretend otherwise.</b>
+      Reserving takes about a minute and costs nothing: it opens a public thread on our
+      repo, we reply there with a payment link the day the checkout goes live, and you
+      decide then. Nothing is owed for holding a rate, and the caps are counted in the
+      open — you can read every reservation on the <a href="https://github.com/guildshelf/free-skills/issues?q=is%3Aissue+label%3Afounding-seat">founding-seat label</a> and count them yourself.
+    </div>
   </div>
 </section>
 
@@ -145,7 +245,7 @@
   <div class="wrap">
     <div class="brand" style="font-size:1rem">Guildshelf <span class="seal">signed</span></div>
     <p style="margin:12px 0 0;color:var(--muted)"><span class="mono" style="color:var(--brass)">Scanned. Signed. Evaled. Maintained.</span></p>
-    <p class="discl">Guildshelf is not affiliated with, sponsored by, or endorsed by Anthropic PBC. "Claude" and "Claude Code" are trademarks of Anthropic, used here only to describe compatibility. Security statistics are from Snyk's ToxicSkills study (3,984 skills scanned, Feb 2026), snyk.io.</p>
+    <p class="discl">Guildshelf is not affiliated with, sponsored by, or endorsed by Anthropic PBC. "Claude" and "Claude Code" are trademarks of Anthropic, used here only to describe compatibility. Security statistics are from Snyk's ToxicSkills study (3,984 skills scanned, Feb 2026), snyk.io. Prices are in US dollars and exclude any tax your jurisdiction adds at checkout.</p>
   </div>
 </footer>
 </body>
