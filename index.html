@@ -144,7 +144,7 @@
     <div class="std">
       <div class="g"><div class="tag mono">&check; SCANNED</div><p>Every release swept for secrets &amp; PII. Best-effort, honest about its limits.</p></div>
       <div class="g"><div class="tag mono">&check; SIGNED</div><p>minisign signatures, public key published out-of-band. What you install is what we shipped.</p></div>
-      <div class="g"><div class="tag mono">&check; EVALED</div><p>20 cases per skill, run for real in fresh sessions. First three scored: <b>10/10</b>, <b>9/10</b>, <b>9/10</b> trigger &mdash; and the variance behind those numbers is published too.</p></div>
+      <div class="g"><div class="tag mono">&check; EVALED</div><p>20 cases per skill, run for real in fresh sessions. Scored so far: <b>10/10</b>, <b>9/10</b>, <b>9/10</b> &mdash; and <b>one at 3/10 we published as a fail</b>, because that is what the number was.</p></div>
       <div class="g"><div class="tag mono">&check; MAINTAINED</div><p>Re-verified within 48h of every model update; fixes shipped or status disclosed.</p></div>
     </div>
   </div>
@@ -154,13 +154,19 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">What is in the library</p>
-      <h2>16 skills across three lines.</h2>
+      <h2>17 skills across three lines.</h2>
       <p>Built from pipelines that ran a real-estate business in production — session arbitration, approval gates, sync watchdogs — genericized and hardened. Every one ships with its own tests, an eval case set, a changelog, and an honest list of what it does not do.</p>
     </div>
     <div class="grid" style="margin-top:0">
       <div class="card"><div class="num">TRUST</div><h3>Keep your agent honest</h3><p><b>SkillLock</b> pins installed skills to content hashes and reports drift. <b>Skill Eval Harness</b> measures whether a skill fires when it should. <b>Knowledge Intake</b> scores a claim before it enters memory. <b>Secrets Hygiene Sweeper</b> and <b>Config Doctor</b> catch what shipped by accident.</p></div>
       <div class="card"><div class="num">OPS</div><h3>Keep it running</h3><p><b>Watchdog Kit</b> restarts a job when it crashes and when it is alive but stuck. <b>Notify Hub</b> delivers the alert with dedup and rate limiting. <b>Go-Live Checklist</b> verifies DNS, ports, health and certificates before launch. <b>Session Arbiter</b> stops concurrent agents corrupting each other.</p></div>
       <div class="card"><div class="num">DATA</div><h3>Keep the records right</h3><p><b>Approval Gate</b> puts a human yes between what an agent extracted and your database, on an append-only trail. <b>Sync Pipeline</b> mirrors upstream data &mdash; retire instead of delete, refuse a truncated &ldquo;full&rdquo; sync, never overwrite what a human wrote.</p></div>
+    </div>
+    <div class="card" style="margin-top:14px;border-color:var(--brass-dim)">
+      <div class="num">NEWEST &middot; US REAL ESTATE</div>
+      <h3>Fair Housing Check</h3>
+      <p><b>21 rules</b> over the federally protected classes plus the source-of-income and age protections states add, and the steering proxies &mdash; neighbourhood safety, school-quality claims. Every finding names the protected class, says why the phrase draws complaints, and gives a rewrite that describes the property instead of the occupant. Offline, so copy tied to a real address never leaves the machine.</p>
+      <p style="margin-top:10px;color:var(--faint);font-size:.86rem"><b style="color:var(--brass)">And it fails its own trigger eval at 3/10.</b> The engine is sound &mdash; all seven release gates green, and it found two defects in itself pre-release &mdash; but asked in ordinary language, the model usually answers from its own knowledge instead of running it. Name it and it runs. We tested two fixes, disproved both, and <a href="https://github.com/guildshelf/skills/blob/main/plugins/guildshelf-pro/skills/fair-housing-check/eval/scorecard.md">published the failure with the disproved hypotheses</a> rather than quietly shipping it as evaled.</p>
     </div>
     <p class="price-note">We ran every one of these against our own library before shipping it, and it keeps finding things. The eval harness found three bugs in itself &mdash; the last one was reading the wrong table column, so three of one skill's ten cases were being scored against the explanation instead of the prompt. Knowledge Intake found two in its own conflict detection. The secrets sweeper turned out to be reporting filesystem paths as credentials, which also hid the genuine path findings underneath them. And a new loadability check caught one paid skill whose frontmatter did not parse at all: a YAML value cannot contain a colon followed by a space, its description said &ldquo;Not for: &hellip;&rdquo;, and so that skill had been shipping in a state where it would never fire on its own. All of it is written up in the changelogs, because a tool that has never been caught being wrong has probably never been checked.</p>
   </div>
