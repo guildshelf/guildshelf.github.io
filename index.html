@@ -144,7 +144,7 @@
     <div class="std">
       <div class="g"><div class="tag mono">&check; SCANNED</div><p>Every release swept for secrets &amp; PII. Best-effort, honest about its limits.</p></div>
       <div class="g"><div class="tag mono">&check; SIGNED</div><p>minisign signatures, public key published out-of-band. What you install is what we shipped.</p></div>
-      <div class="g"><div class="tag mono">&check; EVALED</div><p>20 cases per skill, run for real in fresh sessions. Scored so far: <b>10/10</b>, <b>9/10</b>, <b>9/10</b> &mdash; and <b>one at 3/10 we published as a fail</b>, because that is what the number was.</p></div>
+      <div class="g"><div class="tag mono">&check; EVALED</div><p>20 cases per skill, run for real in fresh sessions. Five scored: <b>10/10, 9/10, 9/10</b> &mdash; and <b>two fails at 5/10 and 3/10, published as fails</b>, because that is what the numbers were.</p></div>
       <div class="g"><div class="tag mono">&check; MAINTAINED</div><p>Re-verified within 48h of every model update; fixes shipped or status disclosed.</p></div>
     </div>
   </div>
@@ -154,7 +154,7 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">What is in the library</p>
-      <h2>17 skills across three lines.</h2>
+      <h2>18 skills across three lines.</h2>
       <p>Built from pipelines that ran a real-estate business in production — session arbitration, approval gates, sync watchdogs — genericized and hardened. Every one ships with its own tests, an eval case set, a changelog, and an honest list of what it does not do.</p>
     </div>
     <div class="grid" style="margin-top:0">
@@ -164,9 +164,9 @@
     </div>
     <div class="card" style="margin-top:14px;border-color:var(--brass-dim)">
       <div class="num">NEWEST &middot; US REAL ESTATE</div>
-      <h3>Fair Housing Check</h3>
-      <p><b>21 rules</b> over the federally protected classes plus the source-of-income and age protections states add, and the steering proxies &mdash; neighbourhood safety, school-quality claims. Every finding names the protected class, says why the phrase draws complaints, and gives a rewrite that describes the property instead of the occupant. Offline, so copy tied to a real address never leaves the machine.</p>
-      <p style="margin-top:10px;color:var(--faint);font-size:.86rem"><b style="color:var(--brass)">And it fails its own trigger eval at 3/10.</b> The engine is sound &mdash; all seven release gates green, and it found two defects in itself pre-release &mdash; but asked in ordinary language, the model usually answers from its own knowledge instead of running it. Name it and it runs. We tested two fixes, disproved both, and <a href="https://github.com/guildshelf/skills/blob/main/plugins/guildshelf-pro/skills/fair-housing-check/eval/scorecard.md">published the failure with the disproved hypotheses</a> rather than quietly shipping it as evaled.</p>
+      <h3>Listing Copy Drafter &rarr; Fair Housing Check</h3>
+      <p><b>Draft, screen, publish.</b> The drafter builds MLS, portal and social copy from a facts file, so <b>it cannot state a figure nobody typed</b> &mdash; and it measures the character budget instead of guessing, names every sentence it left out, and raises the pre-1978 lead-paint disclosure. The screen applies <b>21 rules</b> over the protected classes plus the source-of-income and age protections states add, and the steering proxies: neighbourhood safety, school-quality claims. Each finding names the class, says why it draws complaints, and rewrites it to describe the property instead of the occupant. Both offline, so copy tied to a real address never leaves the machine.</p>
+      <p style="margin-top:10px;color:var(--faint);font-size:.86rem"><b style="color:var(--brass)">Both fail their own trigger evals &mdash; 5/10 and 3/10 &mdash; and here is what we learned from that.</b> Our three infrastructure skills score 10/10, 9/10, 9/10. These two score 5 and 3. The three that pass do work the model <i>cannot</i> do by hand. The two that fail do work it believes it can do itself &mdash; and it can produce something, just without the character budget, the completeness check, the disclosure trigger or any record of what was checked. <b>A skill in a writing or judgement domain has to be asked for by name.</b> We tried two description rewrites aimed at exactly this and measured no improvement from either, so we stopped guessing and <a href="https://github.com/guildshelf/skills/blob/main/plugins/guildshelf-pro/skills/listing-copy-drafter/eval/scorecard.md">published both failures with the disproved hypotheses</a>.</p>
     </div>
     <p class="price-note">We ran every one of these against our own library before shipping it, and it keeps finding things. The eval harness found three bugs in itself &mdash; the last one was reading the wrong table column, so three of one skill's ten cases were being scored against the explanation instead of the prompt. Knowledge Intake found two in its own conflict detection. The secrets sweeper turned out to be reporting filesystem paths as credentials, which also hid the genuine path findings underneath them. And a new loadability check caught one paid skill whose frontmatter did not parse at all: a YAML value cannot contain a colon followed by a space, its description said &ldquo;Not for: &hellip;&rdquo;, and so that skill had been shipping in a state where it would never fire on its own. All of it is written up in the changelogs, because a tool that has never been caught being wrong has probably never been checked.</p>
   </div>
